@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jednoręki bandyta</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let ile = 0
+        let ilewygranych = 0
+
+        function start() {
+
+            document.getElementById("pole1").innerHTML = "<img src='1.jpg'>";
+            document.getElementById("pole2").innerHTML = "<img src='2.jpg'>";
+            document.getElementById("pole3").innerHTML = "<img src='3.jpg'>";
+
+            ile++;
+        }
+
+        function spin() {
+            let x1 = Math.random();
+            x1 = Math.floor(x1 * 3 + 1);
+            let x2 = Math.random();
+            x2 = Math.floor(x2 * 3 + 1);
+            let x3 = Math.random();
+            x3 = Math.floor(x3 * 3 + 1);
+
+            znak1 = "<img src=\"" + x1 + ".jpg\">"
+
+            document.getElementById("pole1").innerHTML = znak1;
+
+            znak2 = "<img src=\"" + x2 + ".jpg\">"
+
+            document.getElementById("pole2").innerHTML = znak2;
+
+
+            znak3 = "<img src=\"" + x3 + ".jpg\">"
+
+            document.getElementById("pole3").innerHTML = znak3;
+            ile++;
+            if ((x1 == x2) && (x1 == x3)) {
+                document.getElementById("wynik").innerHTML = "<h2>brawo</h2>";
+                ilewygranych++;
+
+            } else {
+                document.getElementById("wynik").innerHTML = "<h2>graj dalej</h2>";
+            }
+            document.getElementById("ileg").innerHTML = "<h3>Gier: " + ile + "<br>wygranych:" + ilewygranych + "</h3>";
+
+
+
+        }
+    </script>
+</head>
+
+<body onload="start()">
+    <div id="ramka">
+        <h1>jednoręki bandyta</h1>
+        <div id="pole1"></div>
+        <div id="pole2"></div>
+        <div id="pole3"></div>
+        <div id="przycisk"> <button onclick="spin()">graj</button></div>
+        <div id="wynik"></div>
+        <br>
+        <div id="ileg"></div>
+
+
+
+    </div>
+
+
+</body></html>
